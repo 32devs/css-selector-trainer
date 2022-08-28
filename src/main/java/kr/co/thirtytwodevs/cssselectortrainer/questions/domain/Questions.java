@@ -1,9 +1,16 @@
 package kr.co.thirtytwodevs.cssselectortrainer.questions.domain;
 
-import javax.persistence.*;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Getter;
+
 @Entity(name = "questions")
+@Getter
 public class Questions {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,9 +22,9 @@ public class Questions {
     // 이대로 진행시 java.sql.SQLException: Unknown column 'questions0_.created_at' in 'field list' 오류발생
     // createdAt ColName 중간에 대문자가 있으면 _소문자로 기본변환 https://hayeon17kim.github.io/posts/hiwork-07/
     // Column 어노테이션 name 속성 모두 소문자로 처리
-    @Column(name = "createdat")
+    // @Column(name = "createdat")
     private Date createdAt;
-    @Column(name = "updatedat")
+    // @Column(name = "updatedat")
     private Date updatedAt;
     private String solution;
     private String title;

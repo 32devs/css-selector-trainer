@@ -1,25 +1,35 @@
 package kr.co.thirtytwodevs.cssselectortrainer.questions.service;
 
-import kr.co.thirtytwodevs.cssselectortrainer.questions.domain.Questions;
-import kr.co.thirtytwodevs.cssselectortrainer.questions.repository.QuestionsRepository;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import kr.co.thirtytwodevs.cssselectortrainer.questions.domain.Questions;
+import kr.co.thirtytwodevs.cssselectortrainer.questions.dto.QuestionsDTO;
+import kr.co.thirtytwodevs.cssselectortrainer.questions.repository.QuestionRepositoryTest;
+import kr.co.thirtytwodevs.cssselectortrainer.questions.repository.QuestionsRepository;
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class QuestionsService {
 
-    private final QuestionsRepository questionsRepository;
+    private QuestionsRepository questionsRepository;
 
-    public QuestionsService(QuestionsRepository questionsRepository) {
-        this.questionsRepository = questionsRepository;
-    }
+    private final QuestionRepositoryTest questionRepositoryTest;
 
     /**
      * 전체 문항 조회
      */
-    public List<Questions> findQuestions(){
-        return questionsRepository.findAll();
+    public List<QuestionsDTO> findQuestions(){
+        List<Questions> list = questionsRepository.findAll();
+        List<QuestionsDTO> result = new ArrayList<>();
+        for(Questions q : list) {
+            QuestionsDTO questionsDTO = QuestionsDTO.fromEntity(q);
+            result.add(questionsDTO);
+        }
+        return result;
     }
 
 }

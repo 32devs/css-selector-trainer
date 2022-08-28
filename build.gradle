@@ -4,6 +4,10 @@ plugins {
     id 'java'
 }
 
+bootJar {
+    archiveName('app.jar')
+}
+
 group = 'kr.co.thirtytwodevs'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -23,7 +27,6 @@ dependencies {
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.3'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'com.google.code.gson:gson:2.9.0'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
