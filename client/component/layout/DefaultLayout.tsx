@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-import Header from './Header';
 import Footer from './Footer';
 
 import styles from './index.module.css';
@@ -9,7 +8,7 @@ type layout = {
   children: ReactNode;
 }
 
-function Layout({ children }: layout): JSX.Element {
+function DefaultLayout({ children }: layout): JSX.Element {
   return (
     <div className={ styles.container }>
 
@@ -22,4 +21,4 @@ function Layout({ children }: layout): JSX.Element {
   );
 }
 
-export default Layout;
+export default DefaultLayout;
