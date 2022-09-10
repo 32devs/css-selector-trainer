@@ -10,14 +10,17 @@ type layout = {
 
 function DefaultLayout({ children }: layout): JSX.Element {
   return (
-    <div className={ styles.container }>
+    <>
+      <div className={ styles.container }>
 
-      <main className={ styles.main }>
-        { children }
-      </main>
+        <main className={ styles.main }>
+          { children }
+        </main>
+
+      </div>
 
       <Footer />
-    </div>
+    </>
   );
 }
 
