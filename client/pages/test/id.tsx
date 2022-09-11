@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, Stack, Grid, Paper, styled } from '@mui/material';
+
+import { basicSetup, EditorView } from 'codemirror';
+import { html } from '@codemirror/lang-html';
 
 const Item = styled(Paper)(({ theme }) => ({
   background: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
@@ -12,18 +15,28 @@ const Item = styled(Paper)(({ theme }) => ({
 function Id() {
   const [answer, setAnswer] = useState('');
 
-  useEffect(() => {
+  const editor = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  }, [ answer ]);
+  useEffect(() => {
+    console.log('asdf')
+    const view = new EditorView({
+      doc: '<div>asdfasdf</div>',
+      extensions: [ basicSetup, html() ],
+      parent: editor.current
+    })
+  }, [])
+
 
   return (
     <>
-      <Grid container spacing={ 2 } md={ 12 }>
-        <Grid  item md={ 8 }>
-          <Item id="question">ttt</Item>
+      <Grid container item spacing={ 3 } sm={ 12 } md={ 12 }>
+
+        <Grid item sx={{ p: 1 }} sm={ 12 } md ={ 9 }>
+          <Item ref={ editor }></Item>
         </Grid>
 
-        <Grid item md={ 4 }>
+
+        <Grid item sx={{ p: 1 }} sm={ 12 } md={ 3 }>
           <Item id="answer">terrrd</Item>
         </Grid>
       </Grid>
