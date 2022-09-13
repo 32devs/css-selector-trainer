@@ -128,7 +128,7 @@
     "@lezer/common" "^1.0.0"
     "@lezer/javascript" "^1.0.0"
 
-"@codemirror/language@^6.0.0":
+"@codemirror/language@^6.0.0", "@codemirror/language@^6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@codemirror/language/-/language-6.2.1.tgz#cb10cd785a76e50ecd2fe2dc59ff66af8a41b87a"
   integrity sha512-MC3svxuvIj0MRpFlGHxLS6vPyIdbTr2KKPEW46kCoCXw2ktb4NTkpkPBI/lSP/FoNXLCBJ0mrnUi1OoZxtpW1Q==
@@ -148,6 +148,27 @@
     "@codemirror/state" "^6.0.0"
     "@codemirror/view" "^6.0.0"
     crelt "^1.0.5"
+
+"@codemirror/next@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@codemirror/next/-/next-0.16.0.tgz#b96e99d73fc4254648ca925c56d594c906282de3"
+  integrity sha512-l45zvRlWL1wBHse8OSCXYIxQbeYaIO/DPcqyzUQQBYYdk/tM8ZaCmDqLS15dvLbN2EFkj8RgURg0srDlO6aYJw==
+  dependencies:
+    crelt "^1.0.5"
+    lezer "^0.13.0"
+    lezer-cpp "^0.13.0"
+    lezer-css "^0.13.0"
+    lezer-html "^0.13.0"
+    lezer-java "^0.13.0"
+    lezer-javascript "^0.13.0"
+    lezer-json "^0.13.0"
+    lezer-markdown "^0.13.0"
+    lezer-python "^0.13.0"
+    lezer-rust "^0.13.0"
+    lezer-tree "^0.13.0"
+    lezer-xml "^0.13.0"
+    style-mod "^3.2.0"
+    w3c-keyname "^2.2.4"
 
 "@codemirror/search@^6.0.0":
   version "6.2.0"
@@ -1728,6 +1749,89 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+lezer-cpp@^0.13.0:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/lezer-cpp/-/lezer-cpp-0.13.2.tgz#6653460aebd722447da5334dedce23e1750ef92b"
+  integrity sha512-YVlFzs2jkX6nRBu5ivDm1b0pNLmPgQv0rXuLkDZyc+TSdAirtDixANlT00FCOLOGbxIS/1V2Rx5i4/X+lGgOKQ==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-css@^0.13.0:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/lezer-css/-/lezer-css-0.13.1.tgz#272582af7616318a7e0b6432fdf943c35499c96b"
+  integrity sha512-ke56tjG17IZ+EFiY50P2WinjhgZQB7OecRVZmYQbVuwv5iUdLemA4vLjaFsAbgoSg+4pfOms7Ns9nItoJcmFpg==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-html@^0.13.0:
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/lezer-html/-/lezer-html-0.13.6.tgz#e9bc4489b96c9c671efcb2455cbf08aa4ec09cb9"
+  integrity sha512-FY8ULPsyrbxSCre95hqU69ydCIbjRKoAwWSYbuBL7om6XmQ0C/M9PxV2NToWIgYGK5Yr5MzrsK/H7vsdJGpB2g==
+  dependencies:
+    lezer "^0.13.3"
+
+lezer-java@^0.13.0:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/lezer-java/-/lezer-java-0.13.2.tgz#5144b85cb37f86a12f30ec582b1e8266228df17d"
+  integrity sha512-+BMv172xMTK5zZK0O3BM8SbQ0NK7Z99O5/QWnwt46j6fTGr79HO4n/nuxzzCmq0mQFcweqV2x3QG/L/6zRb7dQ==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-javascript@^0.13.0:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/lezer-javascript/-/lezer-javascript-0.13.4.tgz#f2b36e83bf02cce6df05601133134357133be76e"
+  integrity sha512-nhRbeSwPZo2xVYq6TWyUhi/r9j0CFSUpkuA5J992Az2AYZFw2HnGVjixfP43DKufL+npJwSy0qcCcAHFQ2bFOQ==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-json@^0.13.0:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/lezer-json/-/lezer-json-0.13.2.tgz#f14f486a535df5d38c3e4aaf0166ba9e0ad0b242"
+  integrity sha512-J5wc5KpYywJroIQ7A2+bW0e3JiSo2wX4uDgbCni2Ww5bvTD/iV2tvZ0cHBLmMU/p5qS4dD5bAPysSqHMS9eNAg==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-markdown@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/lezer-markdown/-/lezer-markdown-0.13.0.tgz#cc98f7ee9aa83fd646b3282f1db24f2107970262"
+  integrity sha512-NrWO7skcqqWAr1ui8x1Sh1vMIYlE8re4bpMcno+8/V0zsjPSKgfFqNb9NB9tUK4PJpObJab7+VG1WmCncQrLUg==
+  dependencies:
+    lezer-html "^0.13.0"
+    lezer-tree "^0.13.0"
+
+lezer-python@^0.13.0:
+  version "0.13.7"
+  resolved "https://registry.yarnpkg.com/lezer-python/-/lezer-python-0.13.7.tgz#cd895b0d910f3601e3b51c8ed45de5a580d5f642"
+  integrity sha512-IoUdd88Hj2rdzV74xis5/NLWe69+GRe8wTI1z8ZIl/0IbyMAWEEvSHzAKqBGNGTuBIpBaW+l8awbW4gSZqrjIw==
+  dependencies:
+    lezer "^0.13.2"
+
+lezer-rust@^0.13.0:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/lezer-rust/-/lezer-rust-0.13.1.tgz#f7ea63bcc1b20d8f6d9971b4b6079095081bcb2e"
+  integrity sha512-mn27bruCQfgKsyUV4vW/cUcUtZ0TjwNOFR299ZQxfxKSs4UUg0b6Jvu436ROYo5lxquKXf2BQdFWSttMoSlysg==
+  dependencies:
+    lezer "^0.13.0"
+
+lezer-tree@^0.13.0, lezer-tree@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/lezer-tree/-/lezer-tree-0.13.2.tgz#00f4671309b15c27b131f637e430ce2d4d5f7065"
+  integrity sha512-15ZxW8TxVNAOkHIo43Iouv4zbSkQQ5chQHBpwXcD2bBFz46RB4jYLEEww5l1V0xyIx9U2clSyyrLes+hAUFrGQ==
+
+lezer-xml@^0.13.0:
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/lezer-xml/-/lezer-xml-0.13.4.tgz#a3a890fd59727deb777d601dfdb0ab8508571efd"
+  integrity sha512-mgA6ZfsxBWTG993vkVRonaHaSY4H78IChFI9+H6PiH8mJEG9OP2W1EiZmGbiv32OawF02vWzvTp3Lm3b9P1g9A==
+  dependencies:
+    lezer "^0.13.3"
+
+lezer@^0.13.0, lezer@^0.13.2, lezer@^0.13.3:
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/lezer/-/lezer-0.13.5.tgz#6000536bca7e24a5bd62e8cb4feff28b37e7dd8f"
+  integrity sha512-cAiMQZGUo2BD8mpcz7Nv1TlKzWP7YIdIRrX41CiP5bk5t4GHxskOxWUx2iAOuHlz8dO+ivbuXr0J1bfHsWD+lQ==
+  dependencies:
+    lezer-tree "^0.13.2"
+
 lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
@@ -2013,11 +2117,6 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-codemirror2@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-7.2.1.tgz#38dab492fcbe5fb8ebf5630e5bb7922db8d3a10c"
-  integrity sha512-t7YFmz1AXdlImgHXA9Ja0T6AWuopilub24jRaQdPVbzUJVNKIYuy3uCFZYa7CE5S3UW6SrSa5nAqVQvtzRF9gw==
-
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -2222,6 +2321,11 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+style-mod@^3.2.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/style-mod/-/style-mod-3.2.2.tgz#fc445fdd08bd5a513363079ba625f69b2618f31d"
+  integrity sha512-7X3zF+GjUSQ/opNrzuEOqM+lF+4SOkG5aWxrNw/5rwBrHytsH1Ly8/o9e6Wnqoul2lLT1Pmue63LgiE6mEZAGw==
 
 style-mod@^4.0.0:
   version "4.0.0"
