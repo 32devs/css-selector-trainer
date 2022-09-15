@@ -15,6 +15,11 @@ a {
   box-sizing: border-box;
 }
 
+.selected {
+  font-weight: bolder;
+  background-color: #C8C8C8;
+}
+
 /* .cm-editor {
   width: 100%;
 } */

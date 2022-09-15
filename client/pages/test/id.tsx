@@ -1,5 +1,5 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { Grid, Paper, styled } from '@mui/material';
+import { MutableRefObject, useEffect, useRef, useState, KeyboardEvent } from 'react';
+import { Grid, Paper, Typography, TextField, styled } from '@mui/material';
 
 import CodeMirror from '../../component/CodeMirror';
 
@@ -10,25 +10,66 @@ const Item = styled(Paper)(({ theme }) => ({
   display: 'flex'
 }));
 
+const testString: string = `<div>
+  <ul>
+    <li id="first">1</li>
+    <li id="twice">2</li>
+  </ul>
+</div>`;
+
 function Id() {
   const [answer, setAnswer] = useState<string>('');
+
   const [code, setCode] = useState<string>('');
+  const [viewCode, setViewCode] = useState<string>('');
+
+  const getAnswer = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      const target = e.target as HTMLInputElement;
+      setAnswer(target.value);
+    }
+  }
 
   useEffect(() => {
-    setCode(`<div><ul><li>1</li><li>2</li></ul></div>`);
+    setCode(testString);
+    setViewCode(testString);
   }, []);
+
+  useEffect(() => {
+    const errorReg = /^[\#\.\.\[\]\s]+$|^$/;
+
+    document.querySelector('#view')?.querySelectorAll('.selected').forEach(item => item.classList.remove('selected'));
+    if (!errorReg.test(answer)) {
+      document.querySelector(`#view ${ answer }`)?.classList.add('selected');
+    }
+  }, [answer])
 
   return (
     <>
-      <Grid container item spacing={ 3 } sm={ 12 } md={ 12 }>
+      <Grid container spacing={ 3 }>
 
-        <Grid item sx={{ p: 2 }} sm={ 12 } md ={ 9 }>
-          <CodeMirror value={ code } />
+        <Grid container sx={{ p: 1 }} sm={ 12 } md={ 9 }>
+          <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
+            <Typography variant="overline">VIEW</Typography>
+            <Item id="view" dangerouslySetInnerHTML={{ __html: code }}></Item>
+          </Grid>
+          <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
+            <Typography variant="overline">CODE</Typography>
+            <CodeMirror value={ code } />
+          </Grid>
         </Grid>
 
         <Grid item sx={{ p: 2 }} sm={ 12 } md={ 3 }>
-          <Item id="answer">terrrd</Item>
+          <Typography variant="overline">ANSWER</Typography>
+          <Item id="answer">
+            <TextField
+              label="CSS Query"
+              variant="outlined"
+              onKeyUp={ getAnswer }
+            />
+          </Item>
         </Grid>
+
       </Grid>
     </>
   );
