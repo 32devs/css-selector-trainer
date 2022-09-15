@@ -2,7 +2,7 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 // codemirror
 import { EditorState } from '@codemirror/state';
 import { basicSetup, EditorView } from 'codemirror';
-import { html } from '@codemirror/lang-html';
+import { html, htmlLanguage } from '@codemirror/lang-html';
 // material
 import { Paper, styled } from '@mui/material';
 
