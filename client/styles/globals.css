@@ -15,10 +15,16 @@ a {
   box-sizing: border-box;
 }
 
-.selected {
+.wrong-answer {
   font-weight: bolder;
-  background-color: #C8C8C8;
+  background-color: #EF9A9A;
 }
+
+.correct-answer {
+  font-weight: bolder;
+  background-color: #A5D6A7;
+}
+
 
 /* .cm-editor {
   width: 100%;
