@@ -1,16 +1,12 @@
 import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
 import { Grid, Paper, Typography, styled, InputBase, IconButton } from '@mui/material';
 
-import CodeMirror from '../../component/CodeMirror';
+import Card from '../../component/code/Card/Card';
+
+import CodeMirror from '../../component/code/CodeMirror';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-
-const Item = styled(Paper)(({ theme }) => ({
-  background: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
-  padding: theme.spacing(1),
-  minHeight: '700px',
-  display: 'flex'
-}));
+import AnswerCard from '../../component/code/Card/AnswerCard';
 
 const testSolution: string = '#first';
 const testString: string = `<div>
@@ -61,30 +57,23 @@ function Id() {
 
         <Grid container sx={{ p: 1 }} sm={ 12 } md={ 9 }>
           <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
-            <Typography variant="overline">VIEW</Typography>
-            <Item id="view" dangerouslySetInnerHTML={{ __html: code }}></Item>
+            <Typography variant="overline" sx={{ color: 'white' }}>VIEW</Typography>
+            <Card id={ 'view' } viewCode={ code } />
           </Grid>
           <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
-            <Typography variant="overline">CODE</Typography>
+            <Typography variant="overline" sx={{ color: 'white' }}>CODE</Typography>
             <CodeMirror value={ code } />
           </Grid>
         </Grid>
 
         <Grid item sx={{ p: 2 }} sm={ 12 } md={ 3 }>
-          <Typography variant="overline" >ANSWER</Typography>
-          <Item id="answer" sx={{ flexDirection: 'column' }}>
-            <Typography variant="body1" sx={{ height: '635px', p: 1 }} >{ question }</Typography>
-            <Paper
-              component="form"
-              sx={{ p: 1, height: '45px', width: '100%', display: 'flex', justifyContent: 'space-between', backgroundColor: '#F6F6F6' }}
-              onSubmit={ onSubmit }
-            >
-              <InputBase placeholder="Enter CSS Selector" value={ answer } onChange={ (e: ChangeEvent<HTMLInputElement>) => setAnswer(e.target.value)} />
-              <IconButton type="submit" >
-                <FontAwesomeIcon icon={ faPaperPlane } size="xs" />
-              </IconButton> 
-            </Paper>
-          </Item>
+          <Typography variant="overline" sx={{ color: 'white' }}>ANSWER</Typography>
+          <AnswerCard
+            questionDesc={ question }
+            answer={ answer }
+            setAnswer={ setAnswer }
+            onSubmit={ onSubmit }
+          />
         </Grid>
 
       </Grid>

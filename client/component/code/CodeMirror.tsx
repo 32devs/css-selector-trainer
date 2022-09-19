@@ -6,6 +6,8 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 // material
 import { Paper, styled } from '@mui/material';
 
+import Card from './Card/Card';
+
 const Item = styled(Paper)(({ theme }) => ({
   background: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
   padding: theme.spacing(1),
@@ -15,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function CodeMirror({ value }: { value: string}) {
 
-  const editor: MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const editor: MutableRefObject<HTMLDivElement> = useRef() as MutableRefObject<HTMLDivElement>;
 
   const initialState: EditorState = EditorState.create({
     doc: value,
@@ -40,6 +42,7 @@ function CodeMirror({ value }: { value: string}) {
   }, [value]);
   
   return <Item sx={{ p: 2 }} ref={ editor }></Item>;
+  // return <Card sx={{ p: 2 }} ref={ editor } />
 }
 
 export default CodeMirror;
