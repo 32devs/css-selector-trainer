@@ -1,9 +1,9 @@
 version: "3.7"
 services:
     nginx:
-        build:
-            context: ./nginx
-            dockerfile: Dockerfile
+        image: nginx
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/sites-available/default
         ports:
             - 80:80
         container_name: cst-nginx
@@ -12,20 +12,15 @@ services:
             - api
     web:
         build:
-            context: ./client
-            dockerfile: Dockerfile
+            dockerfile: ./client/Dockerfile
         ports:
             - 3000:3000
         container_name: cst-web
     api:
-        build:
-            context: .
-            dockerfile: DockerFile
+        build: .
         ports:
             - 8080:8080
         container_name: cst-api
-        depends_on:
-            - mariadb
     mariadb:
         image: mariadb:10.9
         ports:
@@ -39,7 +34,6 @@ services:
         environment:
                 TZ: Asia/Seoul
         container_name: cst-db
-
 
 
 
