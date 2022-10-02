@@ -7,9 +7,9 @@ services:
         ports:
             - "80:80"
         container_name: cst-nginx
-        depends_on:
-            - web
-            - api
+#        depends_on:
+#            - web
+#            - api
     web:
         build:
             context: ./client
@@ -20,7 +20,7 @@ services:
     api:
         build:
             context: .
-            dockerfile: DockerFile
+            dockerfile: Dockerfile
         ports:
             - "8080:8080"
         container_name: cst-api
@@ -29,7 +29,7 @@ services:
     mariadb:
         build:
             context: ./mariaDB
-            dockerfile: DockerFile
+            dockerfile: Dockerfile
         ports:
             - "3306:3306"
         restart: always

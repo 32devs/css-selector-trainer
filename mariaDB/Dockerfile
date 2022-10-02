@@ -1,6 +1,6 @@
 FROM mariadb:10.9
-COPY ./conf.d /etc/mysql/conf.d
-COPY ./initdb.d /docker-entrypoint-initdb.d
+COPY /conf.d /etc/mysql/conf.d
+COPY /initdb.d /docker-entrypoint-initdb.d
 #COPY ./db/data /var/lib/mysql
 
 ENV MYSQL_HOST=localhost
