@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 public class Questions {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본키 생성을 데이터베이스에 위임해주고 id가 null이면 알아서 auto_increment 해줌
     private Long id;
     private String contents;
     private boolean deleted;
@@ -24,22 +24,12 @@ public class Questions {
     //@Column(name = "updatedat")
     //2022.08.28 db 컬럼과 entity 변수의 대소문자 동일화 설정
     //spring.jpa.hibernate.naming.physical-strategy = org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    @Column(name = "createdAt", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt;
+    @Column(name = "updatedAt", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Date updatedAt;
     private String solution;
     private String title;
+    private String html;
 
-    /*@Override
-    public String toString() {
-        return "Questions{" +
-                "id=" + id +
-                ", contents='" + contents + '\'' +
-                ", deleted=" + deleted +
-                ", step=" + step +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", solution='" + solution + '\'' +
-                ", title='" + title + '\'' +
-                '}';
-    }*/
 }

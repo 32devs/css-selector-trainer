@@ -14,12 +14,6 @@ public class QuestionsService {
 
     private final QuestionsRepository questionsRepository;
 
-    /*
-    public QuestionsService(QuestionsRepository questionsRepository) {
-        this.questionsRepository = questionsRepository;
-    }
-    */
-
     /**
      * 전체 문항 조회
      */
@@ -32,6 +26,17 @@ public class QuestionsService {
      */
     public Questions findQuestion(Long id){
         return questionsRepository.findById(id).orElseThrow(()->new IllegalArgumentException());
+    }
+
+    /**
+     * 레코드 저장 save()
+     */
+    public void save(String title, String contents, String solution ){
+        Questions questions = new Questions();
+        questions.setTitle(title);
+        questions.setContents(contents);
+        questions.setSolution(solution);
+        questionsRepository.save(questions);
     }
 
 }
