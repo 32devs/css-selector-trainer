@@ -7,9 +7,9 @@ services:
         ports:
             - "80:80"
         container_name: cst-nginx
-#        depends_on:
-#            - web
-#            - api
+        depends_on:
+            - web
+            - api
     web:
         build:
             context: ./client
