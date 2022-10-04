@@ -2,10 +2,10 @@ package kr.co.thirtytwodevs.cssselectortrainer.questions.controller;
 
 import kr.co.thirtytwodevs.cssselectortrainer.questions.domain.Questions;
 import kr.co.thirtytwodevs.cssselectortrainer.questions.service.QuestionsService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/questions")
@@ -20,8 +20,7 @@ public class QuestionsController {
      * */
     @GetMapping
     public List<Questions> list(){
-        List<Questions> questions = questionsService.findQuestions();
-        return questions;
+        return questionsService.findQuestions();
     }
 
     /**
