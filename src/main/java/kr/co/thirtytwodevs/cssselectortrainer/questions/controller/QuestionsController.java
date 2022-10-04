@@ -5,8 +5,7 @@ import kr.co.thirtytwodevs.cssselectortrainer.questions.service.QuestionsService
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/questions")
