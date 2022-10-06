@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Container } from 'react-bootstrap';
 
 import Footer from './Footer';
 
@@ -11,14 +12,12 @@ type layout = {
 function DefaultLayout({ children }: layout): JSX.Element {
   return (
     <>
-      <div className={ styles.container }>
-
+      <Container>
         <main className={ styles.main }>
           { children }
         </main>
 
-      </div>
-
+      </Container>
       <Footer />
     </>
   );
