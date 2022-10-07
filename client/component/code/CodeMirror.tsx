@@ -6,8 +6,6 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 // material
 import { Paper, styled } from '@mui/material';
 
-import Card from './Card/Card';
-
 const Item = styled(Paper)(({ theme }) => ({
   background: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
   padding: theme.spacing(1),
