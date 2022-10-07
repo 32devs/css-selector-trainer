@@ -1,6 +1,8 @@
 import { useEffect, useState, FormEvent } from 'react';
 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
+import Card2 from '../../component/code/Card/Card2';
+import CodeMirror from '../../component/code/CodeMirror';
 
 const testSolution: string = '#first';
 const testString: string = `<div>
@@ -46,19 +48,21 @@ function Id2() {
   }, []);
 
   return (
-    <Row>
+    <Row style={{ width: '100%' }}>
         {/* VIEW */}
         <Col sm={ 12 } md={ 4 }>
-          VIEW
+          <p style={{ color: 'white' }}>VIEW</p>
+          <Card2 id={ 'view' } viewCode={ code } />
         </Col>
 
         {/* CODE */}
         <Col sm={ 12 } md={ 4 }>
-          CODE
+          <p style={{ color: 'white' }}>CODE</p>
+          <CodeMirror value={ code } />
         </Col>
 
       <Col sm={ 12 } md={ 4 }>
-        ANSWER
+        <p style={{ color: 'white' }}>ANSWER</p>
       </Col>
     </Row>
   )
