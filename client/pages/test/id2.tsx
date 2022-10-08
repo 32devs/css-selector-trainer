@@ -1,6 +1,7 @@
 import { useEffect, useState, FormEvent } from 'react';
 
 import { Row, Col, Card } from 'react-bootstrap';
+import AnswerCard2 from '../../component/code/Card/AnswerCard2';
 import Card2 from '../../component/code/Card/Card2';
 import CodeMirror from '../../component/code/CodeMirror';
 
@@ -49,20 +50,25 @@ function Id2() {
 
   return (
     <Row style={{ width: '100%' }}>
-        {/* VIEW */}
-        <Col sm={ 12 } md={ 4 }>
-          <p style={{ color: 'white' }}>VIEW</p>
-          <Card2 id={ 'view' } viewCode={ code } />
-        </Col>
+      {/* VIEW */}
+      <Col sm={ 12 } xl={ 4 }>
+        <p style={{ color: 'white' }}>VIEW</p>
+        <Card2 id={ 'view' } viewCode={ code } />
+      </Col>
 
-        {/* CODE */}
-        <Col sm={ 12 } md={ 4 }>
-          <p style={{ color: 'white' }}>CODE</p>
-          <CodeMirror value={ code } />
-        </Col>
+      {/* CODE */}
+      <Col sm={ 12 } xl={ 4 }>
+        <p style={{ color: 'white' }}>CODE</p>
+        <CodeMirror value={ code } />
+      </Col>
 
-      <Col sm={ 12 } md={ 4 }>
+      <Col sm={ 12 } xl={ 4 }>
         <p style={{ color: 'white' }}>ANSWER</p>
+        <AnswerCard2
+          questionDesc={ question }
+          answer={ answer }
+          setAnswer={ setAnswer }
+          onSubmit={ onSubmit } />
       </Col>
     </Row>
   )
