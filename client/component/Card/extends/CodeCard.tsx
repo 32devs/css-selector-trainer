@@ -2,18 +2,13 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 // codemirror
 import { EditorState } from '@codemirror/state';
 import { basicSetup, EditorView } from 'codemirror';
-import { html, htmlLanguage } from '@codemirror/lang-html';
-// material
-import { Paper, styled } from '@mui/material';
+import { html } from '@codemirror/lang-html';
 
-const Item = styled(Paper)(({ theme }) => ({
-  background: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
-  padding: theme.spacing(1),
-  minHeight: '700px',
-  display: 'flex'
-}));
+import { Card } from 'react-bootstrap';
 
-function CodeMirror({ value }: { value: string}) {
+import styles from '../Card.module.css';
+
+function CodeCard({ value }: { value: string}) {
 
   const editor: MutableRefObject<HTMLDivElement> = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -39,8 +34,7 @@ function CodeMirror({ value }: { value: string}) {
     return () => view?.destroy();
   }, [value]);
   
-  return <Item sx={{ p: 2 }} ref={ editor }></Item>;
-  // return <Card sx={{ p: 2 }} ref={ editor } />
+  return <Card className={ styles['card'] } ref={ editor } />;
 }
 
-export default CodeMirror;
+export default CodeCard;

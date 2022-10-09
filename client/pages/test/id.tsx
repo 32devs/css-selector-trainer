@@ -1,24 +1,24 @@
-import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
-import { Grid, Paper, Typography, styled, InputBase, IconButton } from '@mui/material';
+import { useEffect, useState, FormEvent } from 'react';
 
-import Card from '../../component/code/Card/Card';
-
-import CodeMirror from '../../component/code/CodeMirror';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import AnswerCard from '../../component/code/Card/AnswerCard';
+import { Row, Col, Card } from 'react-bootstrap';
+import AnswerCard2 from '../../component/Card/extends/AnswerCard2';
+import BasicCard from '../../component/Card/BasicCard';
+import HintCard from '../../component/Card/extends/DescCard';
+import CodeCard from '../../component/Card/extends/CodeCard';
 
 const testSolution: string = '#first';
 const testString: string = `<div>
   <ul>
     <li id="first">1</li>
-    <li id="twice">2</li>
+    <li id="second">2</li>
+    <li id="third">3</li>
   </ul>
 </div>`;
 
-const testQuestion: string = `id가 first인 요소를 선택해주세요.`
+const desc: string = `CSS Selector에서 id는 #으로 표현됩니다.`;
+const testQuestion: string = `id가 first인 요소를 선택해주세요.`;
 
-function Id() {
+function Id2() {
   const [question, setQuestion] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
   const [solution, setSolution] = useState<string>('');
@@ -52,33 +52,31 @@ function Id() {
   }, []);
 
   return (
-    <>
-      <Grid container spacing={ 3 }>
+    <Row style={{ width: '100%' }}>
+      {/* VIEW */}
+      <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
+        <p style={{ color: 'white' }}>VIEW</p>
+        <BasicCard id={ 'view' } viewCode={ code } />
+      </Col>
 
-        <Grid container sx={{ p: 1 }} sm={ 12 } md={ 9 }>
-          <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
-            <Typography variant="overline" sx={{ color: 'white' }}>VIEW</Typography>
-            <Card id={ 'view' } viewCode={ code } />
-          </Grid>
-          <Grid item sx={{ p: 2 }} sm={ 12 } md={ 6 }>
-            <Typography variant="overline" sx={{ color: 'white' }}>CODE</Typography>
-            <CodeMirror value={ code } />
-          </Grid>
-        </Grid>
+      {/* CODE */}
+      <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
+        <p style={{ color: 'white' }}>CODE</p>
+        <CodeCard value={ code } />
+      </Col>
 
-        <Grid item sx={{ p: 2 }} sm={ 12 } md={ 3 }>
-          <Typography variant="overline" sx={{ color: 'white' }}>ANSWER</Typography>
-          <AnswerCard
-            questionDesc={ question }
-            answer={ answer }
-            setAnswer={ setAnswer }
-            onSubmit={ onSubmit }
-          />
-        </Grid>
-
-      </Grid>
-    </>
-  );
+      <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
+        <p style={{ color: 'white' }}>ANSWER</p>
+        <AnswerCard2
+          questionDesc={ question }
+          answer={ answer }
+          setAnswer={ setAnswer }
+          onSubmit={ onSubmit } />
+        <p style={{ color: 'white' }}>HINT</p>
+        <HintCard desc={ desc } />
+      </Col>
+    </Row>
+  )
 }
 
-export default Id;
+export default Id2;

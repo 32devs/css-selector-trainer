@@ -1,0 +1,12 @@
+.card {
+  min-height: 700px;
+  min-width: 350px;
+  width: 100%;
+  padding: 15px;
+}
+
+.card-half {
+  min-height: 329px;
+  width: 100%;
+  padding: 15px;
+}
