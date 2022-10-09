@@ -16,7 +16,7 @@ jobs:
             - checkout
             - run:
                   name: gradle build
-                  command: ./gradlew clean build
+                  command: ./gradlew clean build -x test
 
 #            - restore_cache:
 #                  keys:
