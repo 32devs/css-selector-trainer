@@ -10,6 +10,11 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,6 +27,14 @@ a {
 .correct-answer {
   font-weight: bolder;
   background-color: #A5D6A7;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.tc {
+  text-align: center;
 }
 
 

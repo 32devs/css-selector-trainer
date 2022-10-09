@@ -7,14 +7,15 @@ type CardProps = {
   children?: ReactNode;
   id?: string;
   viewCode?: string;
+  half?: boolean;
 }
 
-function Card2({ children, id, viewCode }: CardProps): JSX.Element {
+function BasicCard({ children, id, viewCode, half }: CardProps): JSX.Element {
   return (
     viewCode
       ? (
           <Card
-            className={ styles.card }
+            className={ half ? styles['card-half'] : styles['card'] }
             dangerouslySetInnerHTML={{ __html: viewCode as string }}
           >
             { children }
@@ -23,7 +24,7 @@ function Card2({ children, id, viewCode }: CardProps): JSX.Element {
       : (
           <Card
             id={ id }
-            className={ styles.card }
+            className={ half ? styles['card-half'] : styles['card'] }
           >
             { children }
           </Card>
@@ -31,4 +32,4 @@ function Card2({ children, id, viewCode }: CardProps): JSX.Element {
   );
 }
 
-export default Card2;
+export default BasicCard;
