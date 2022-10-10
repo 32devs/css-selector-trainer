@@ -14,20 +14,19 @@ jobs:
 
         steps:
             - checkout
-            - run: gradle dependencies
-
-            - restore_cache:
-                  keys:
-                      - v1-dependencies-{{ checksum "build.gradle" }}
-                      # fallback to using the latest cache if no exact match is found
-                      - v1-dependencies-
-
-            - run: gradle dependencies
-
-            - save_cache:
-                  paths:
-                      - ~/.gradle
-                  key: v1-dependencies-{{ checksum "build.gradle" }}
-
-            # run tests!
-            - run: gradle test
+            - run: gradle bootJar
+            - run:
+                name: Install Docker Compose
+                environment:
+                    COMPOSE_VERSION: '1.29.2'
+                command: |
+                    curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
+                    chmod +x ~/docker-compose
+                    sudo mv ~/docker-compose /usr/local/bin/docker-compose
+            - setup_remote_docker
+            - run:
+                name: Build images of services declared in docker-compose.yml
+                command: docker-compose build
+            - run:
+                name: push docker compose
+                command: docker-compose push

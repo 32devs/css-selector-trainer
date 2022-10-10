@@ -7,6 +7,7 @@ services:
         ports:
             - "80:80"
         container_name: cst-nginx
+        image: jparangdev/32devs:cst-nginx
         depends_on:
             - web
             - api
@@ -19,6 +20,7 @@ services:
         ports:
             - "3000:3000"
         container_name: cst-web
+        image: jparangdev/32devs:cst-web
     api:
         build:
             context: .
@@ -26,3 +28,4 @@ services:
         ports:
             - "8080:8080"
         container_name: cst-api
+        image: jparangdev/32devs:cst-api
