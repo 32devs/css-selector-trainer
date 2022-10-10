@@ -10,6 +10,8 @@ services:
         depends_on:
             - web
             - api
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
     web:
         build:
             context: ./client
@@ -24,13 +26,3 @@ services:
         ports:
             - "8080:8080"
         container_name: cst-api
-        depends_on:
-            - mariadb
-    mariadb:
-        build:
-            context: ./mariaDB
-            dockerfile: Dockerfile
-        ports:
-            - "3306:3306"
-        restart: always
-        container_name: cst-db
