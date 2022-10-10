@@ -29,9 +29,7 @@ jobs:
                 command: docker-compose build
             - run:
                   name: docker login
-                  command: | 
-                      docker login -u jparangdev
-                      dckr_pat_Ss-bND-so9NJh42zFgeZnVKARBA
+                  command: docker login -u jparangdev -p dckr_pat_Ss-bND-so9NJh42zFgeZnVKARBA
             - run:
                 name: push docker images
                 command: docker-compose push
