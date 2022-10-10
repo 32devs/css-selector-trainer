@@ -14,7 +14,7 @@ jobs:
 
         steps:
             - checkout
-            - run: gradle bootJar
+            - run: ./gradlew bootJar
             - run:
                 name: Install Docker Compose
                 environment:
