@@ -29,3 +29,4 @@ services:
             - "8080:8080"
         container_name: cst-api
         image: jparangdev/32devs:cst-api
+        
