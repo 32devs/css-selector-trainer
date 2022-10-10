@@ -66,14 +66,14 @@ function Id2() {
       </Col>
 
       <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
+        <p style={{ color: 'white' }}>HINT</p>
+        <HintCard desc={ desc } />
         <p style={{ color: 'white' }}>ANSWER</p>
         <AnswerCard2
           questionDesc={ question }
           answer={ answer }
           setAnswer={ setAnswer }
           onSubmit={ onSubmit } />
-        <p style={{ color: 'white' }}>HINT</p>
-        <HintCard desc={ desc } />
       </Col>
     </Row>
   )

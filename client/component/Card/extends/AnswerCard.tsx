@@ -3,7 +3,7 @@ import { IconButton, InputBase, Paper, styled, Typography } from '@mui/material'
 import { FontAwesomeIcon  } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-import Card from './Card';
+import Card from '../Card';
 import { ChangeEvent, FormEventHandler } from 'react';
 
 function AnswerCard({ questionDesc, answer, setAnswer, onSubmit }: { questionDesc: string, answer: string, setAnswer: any, onSubmit: FormEventHandler<HTMLFormElement> }) {
