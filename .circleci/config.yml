@@ -6,9 +6,6 @@ jobs:
     build:
         docker:
             - image: circleci/openjdk:11-jdk
-              auth:
-                  username: jparangdev
-                  password: dckr_pat_Ss-bND-so9NJh42zFgeZnVKARBA
         working_directory: ~/repo
 
         environment:
@@ -30,6 +27,11 @@ jobs:
             - run:
                 name: Build images of services declared in docker-compose.yml
                 command: docker-compose build
+            - run:
+                  name: docker login
+                  command: | 
+                      docker login -u jparangdev
+                      dckr_pat_Ss-bND-so9NJh42zFgeZnVKARBA
             - run:
                 name: push docker images
                 command: docker-compose push
