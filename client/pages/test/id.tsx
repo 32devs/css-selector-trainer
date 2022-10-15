@@ -1,9 +1,9 @@
 import { useEffect, useState, FormEvent } from 'react';
 
-import { Row, Col, Card } from 'react-bootstrap';
-import AnswerCard2 from '../../component/Card/extends/AnswerCard2';
+import { Row, Col } from 'react-bootstrap';
+import AnswerCard from '../../component/Card/extends/AnswerCard';
 import BasicCard from '../../component/Card/BasicCard';
-import HintCard from '../../component/Card/extends/DescCard';
+import DescCard from '../../component/Card/extends/DescCard';
 import CodeCard from '../../component/Card/extends/CodeCard';
 
 const testSolution: string = '#first';
@@ -28,6 +28,8 @@ function Id2() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    console.log(answer)
 
     const errorReg = /^[\#\.\.\[\]\s]+$|^$/;
 
@@ -55,25 +57,24 @@ function Id2() {
     <Row style={{ width: '100%' }}>
       {/* VIEW */}
       <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
-        <p style={{ color: 'white' }}>VIEW</p>
+        <p className="color-white ml5" >VIEW</p>
         <BasicCard id={ 'view' } viewCode={ code } />
       </Col>
 
       {/* CODE */}
       <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
-        <p style={{ color: 'white' }}>CODE</p>
+        <p className="color-white ml5" >CODE</p>
         <CodeCard value={ code } />
       </Col>
 
       <Col sm={ 12 } xl={ 4 } className={ 'p10' }>
-        <p style={{ color: 'white' }}>HINT</p>
-        <HintCard desc={ desc } />
-        <p style={{ color: 'white' }}>ANSWER</p>
-        <AnswerCard2
+        <p className="color-white ml5" >ANSWER</p>
+        <AnswerCard
           questionDesc={ question }
           answer={ answer }
           setAnswer={ setAnswer }
           onSubmit={ onSubmit } />
+        <DescCard desc={ desc } />
       </Col>
     </Row>
   )

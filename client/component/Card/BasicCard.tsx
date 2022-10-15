@@ -15,6 +15,7 @@ function BasicCard({ children, id, viewCode, half }: CardProps): JSX.Element {
     viewCode
       ? (
           <Card
+            id={ id }
             className={ half ? styles['card-half'] : styles['card'] }
             dangerouslySetInnerHTML={{ __html: viewCode as string }}
           >

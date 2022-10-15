@@ -37,6 +37,14 @@ p {
   text-align: center;
 }
 
+.color-white {
+  color: white;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
 
 /* .cm-editor {
   width: 100%;
