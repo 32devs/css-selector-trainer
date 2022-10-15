@@ -1,6 +1,6 @@
 import BasicCard from '../BasicCard';
 
-function HintCard({ desc }: { desc: string }) {
+function DescCard({ desc }: { desc: string }) {
   return (
     <BasicCard id={ 'desc' } half>
       <pre>{ desc }</pre>
@@ -8,4 +8,4 @@ function HintCard({ desc }: { desc: string }) {
   );
 }
 
-export default HintCard;
+export default DescCard;

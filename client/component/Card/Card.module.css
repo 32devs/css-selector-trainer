@@ -1,4 +1,5 @@
 .card {
+  height: 700px;
   min-height: 700px;
   min-width: 350px;
   width: 100%;
@@ -6,7 +7,10 @@
 }
 
 .card-half {
-  min-height: 329px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 345px;
   width: 100%;
   padding: 15px;
+  margin-bottom: 10px;
 }

@@ -20,7 +20,8 @@ function CodeCard({ value }: { value: string}) {
       html(),
       EditorView.theme({
         '&.cm-editor': {
-          width: '100%'
+          width: '100%',
+          height: '100%'
         }
       })
     ]
