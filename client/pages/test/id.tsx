@@ -15,8 +15,8 @@ const testString: string = `<div>
   </ul>
 </div>`;
 
-const desc: string = `CSS Selector에서 id는 #으로 표현됩니다.`;
-const testQuestion: string = `id가 first인 요소를 선택해주세요.`;
+const desc: string = `CSS Selector에서 id는 <strong>#</strong>으로 표현됩니다.`;
+const testQuestion: string = `<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.`;
 
 function Id2() {
   const [question, setQuestion] = useState<string>('');
@@ -28,8 +28,6 @@ function Id2() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log(answer)
 
     const errorReg = /^[\#\.\.\[\]\s]+$|^$/;
 
