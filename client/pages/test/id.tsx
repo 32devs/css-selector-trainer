@@ -15,7 +15,7 @@ const testString: string = `<div>
   </ul>
 </div>`;
 
-const desc: string = `CSS Selector에서 id는 <strong>#</strong>으로 표현됩니다.`;
+const desc: string = `CSS Selector에서 id는 <code-gray>#</code-gray>으로 표현됩니다.`;
 const testQuestion: string = `<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.`;
 
 function Id2() {
