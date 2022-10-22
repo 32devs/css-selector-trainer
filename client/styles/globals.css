@@ -45,6 +45,11 @@ p {
   margin-left: 5px;
 }
 
+code-gray {
+  background-color: #D6D6D6;
+  padding: 0 5px;
+}
+
 
 /* .cm-editor {
   width: 100%;
