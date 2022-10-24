@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app';
+import type { AppContext, AppInitialProps, AppProps } from 'next/app';
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
@@ -10,7 +10,6 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log(pageProps.error)
   return (
     <DefaultLayout>
       <Component {...pageProps} />
