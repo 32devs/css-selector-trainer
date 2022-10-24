@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 
-import Error from 'next/error';
+import { NextRouter, useRouter } from 'next/router';
 
 import Footer from './Footer';
 import NavBar from './NavBar';
@@ -13,9 +13,24 @@ type layout = {
 }
 
 function DefaultLayout({ children }: layout): JSX.Element {
+
+  const router: NextRouter = useRouter();
+
+  const [pageError, setPageError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (router.asPath !== router.pathname) {
+      setPageError(true);
+    }
+  }, []);
+
   return (
     <>
-      <NavBar />
+      {
+        pageError
+          ? <></>
+          : <NavBar />
+      }
       <Container fluid>
         <main className={ styles.main }>
           { children }
