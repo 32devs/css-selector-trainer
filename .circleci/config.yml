@@ -33,4 +33,8 @@ jobs:
             - run:
                 name: push docker images
                 command: docker-compose push
+            - run:
+                  name: deploy ssh
+                  command: |
+                    ssh $SSH_USER@$SSH_HOST "cd /home/cst && docker-compose puu && docker-compose up"
 
