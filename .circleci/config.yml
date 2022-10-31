@@ -36,5 +36,5 @@ jobs:
             - run:
                   name: deploy ssh
                   command: |
-                    ssh $SSH_USER@$SSH_HOST "cd /home/cst && docker-compose puu && docker-compose up"
-
+                    ssh $SSH_USER@$SSH_HOST -p $SSH_PORT "cd /home/cst && docker-compose puu && docker-compose up"
+    deploy:
