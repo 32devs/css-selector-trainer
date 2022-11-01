@@ -1,5 +1,5 @@
 .card {
-  height: 700px;
+  height: 90vh;
   min-height: 700px;
   min-width: 350px;
   width: 100%;
@@ -9,6 +9,7 @@
 .card-half {
   display: flex;
   justify-content: space-between;
+  height: 44.5vh;
   min-height: 345px;
   width: 100%;
   padding: 15px;

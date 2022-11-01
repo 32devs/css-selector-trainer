@@ -1,5 +1,10 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .main {
-  min-height: 100vh;
   padding: 0 0;
   flex: 1;
   display: flex;
