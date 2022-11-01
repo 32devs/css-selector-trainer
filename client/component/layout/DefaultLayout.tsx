@@ -31,7 +31,7 @@ function DefaultLayout({ children }: layout): JSX.Element {
           ? <></>
           : <NavBar />
       }
-      <Container fluid>
+      <Container className={ styles.container }>
         <main className={ styles.main }>
           { children }
         </main>
