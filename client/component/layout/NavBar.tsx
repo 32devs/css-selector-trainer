@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 
 function NavBar() {
@@ -13,9 +13,20 @@ function NavBar() {
             <Link href="/" passHref>
               <Nav.Link>Home</Nav.Link>
             </Link>
-            <Link href="/menu1" passHref>
-              <Nav.Link href="#1">Menu1</Nav.Link>
-            </Link>
+            <NavDropdown title="Questions">
+              <Link href="/test/id" passHref>
+                <NavDropdown.Item>ID</NavDropdown.Item>
+              </Link>
+              <Link href="/test/class" passHref>
+                <NavDropdown.Item>CLASS</NavDropdown.Item>
+              </Link>
+              <Link href="/test/tag" passHref>
+                <NavDropdown.Item>TAG</NavDropdown.Item>
+              </Link>
+              <Link href="/test/etc" passHref>
+                <NavDropdown.Item>ETC</NavDropdown.Item>
+              </Link>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
