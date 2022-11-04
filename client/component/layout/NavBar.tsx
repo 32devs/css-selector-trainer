@@ -14,16 +14,16 @@ function NavBar() {
               <Nav.Link>Home</Nav.Link>
             </Link>
             <NavDropdown title="Questions">
-              <Link href="/test/id" passHref>
+              <Link href="/test?s=id" passHref>
                 <NavDropdown.Item>ID</NavDropdown.Item>
               </Link>
-              <Link href="/test/class" passHref>
+              <Link href="/test?s=class" passHref>
                 <NavDropdown.Item>CLASS</NavDropdown.Item>
               </Link>
-              <Link href="/test/tag" passHref>
+              <Link href="/test?s=tag" passHref>
                 <NavDropdown.Item>TAG</NavDropdown.Item>
               </Link>
-              <Link href="/test/etc" passHref>
+              <Link href="/test?s=etc" passHref>
                 <NavDropdown.Item>ETC</NavDropdown.Item>
               </Link>
             </NavDropdown>
