@@ -19,7 +19,7 @@ function DefaultLayout({ children }: layout): JSX.Element {
   const [pageError, setPageError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (router.asPath !== router.pathname) {
+    if (!router.asPath.includes(router.pathname)) {
       setPageError(true);
     }
   }, []);

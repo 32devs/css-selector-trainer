@@ -1,31 +1,45 @@
-import { useEffect, useState, FormEvent } from 'react';
+import { GetServerSideProps } from 'next';
+import { NextRouter, useRouter } from 'next/router';
+import { FormEvent, useEffect, useState } from 'react';
 
 import { Row, Col } from 'react-bootstrap';
-import AnswerCard from '../../component/Card/extends/AnswerCard';
-import BasicCard from '../../component/Card/BasicCard';
-import DescCard from '../../component/Card/extends/DescCard';
-import CodeCard from '../../component/Card/extends/CodeCard';
+import AnswerCard from '../component/Card/extends/AnswerCard';
+import BasicCard from '../component/Card/BasicCard';
+import DescCard from '../component/Card/extends/DescCard';
+import CodeCard from '../component/Card/extends/CodeCard';
 
-const testSolution: string = '#first';
-const testString: string = `<div>
+const data = [
+  {
+    s: 'id',
+    solution: '#first',
+    testString: `<div>
   <ul>
     <li id="first">1</li>
     <li id="second">2</li>
     <li id="third">3</li>
   </ul>
-</div>`;
+</div>`,
+    desc: 'CSS Selector에서 id는 <code-gray>#</code-gray>으로 표현됩니다.',
+    question: '<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.'
+  }
+];
 
-const desc: string = `CSS Selector에서 id는 <code-gray>#</code-gray>으로 표현됩니다.`;
-const testQuestion: string = `<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.`;
+function Test() {
+  const router: NextRouter = useRouter();
+  const { s } = router.query;
 
-function Id2() {
+  // --------------------------------------------------------------------
+
   const [question, setQuestion] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
   const [solution, setSolution] = useState<string>('');
+  const [desc, setDesc] = useState<string>('');
 
   const [code, setCode] = useState<string>('');
   const [viewCode, setViewCode] = useState<string>('');
 
+  // --------------------------------------------------------------------
+  
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -45,11 +59,17 @@ function Id2() {
   }
 
   useEffect(() => {
-    setQuestion(testQuestion);
-    setSolution(testSolution);
-    setCode(testString);
-    setViewCode(testString);
-  }, []);
+
+    if (!router.isReady) return;
+    const testData = data.find(e => e.s == s);
+
+    setQuestion(testData?.question || '');
+    setSolution(testData?.solution || '');
+    setDesc(testData?.desc || '');
+
+    setCode(testData?.testString || '');
+    setViewCode(testData?.testString || '');
+  }, [router.isReady]);
 
   return (
     <Row style={{ width: '100%' }}>
@@ -75,7 +95,7 @@ function Id2() {
         <DescCard desc={ desc } />
       </Col>
     </Row>
-  )
+  );
 }
 
-export default Id2;
+export default Test;
