@@ -8,6 +8,8 @@ import BasicCard from '../component/Card/BasicCard';
 import DescCard from '../component/Card/extends/DescCard';
 import CodeCard from '../component/Card/extends/CodeCard';
 
+// --------------------------------------------------------------------
+
 const data = [
   {
     s: 'id',
@@ -23,6 +25,8 @@ const data = [
     question: '<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.'
   }
 ];
+
+// --------------------------------------------------------------------
 
 function Test() {
   const router: NextRouter = useRouter();
@@ -58,6 +62,8 @@ function Test() {
     }
   }
 
+  // --------------------------------------------------------------------
+
   useEffect(() => {
 
     if (!router.isReady) return;
@@ -69,7 +75,11 @@ function Test() {
 
     setCode(testData?.testString || '');
     setViewCode(testData?.testString || '');
-  }, [router.isReady]);
+
+    
+  }, [ router ]);
+
+  // --------------------------------------------------------------------
 
   return (
     <Row style={{ width: '100%' }}>
@@ -97,5 +107,7 @@ function Test() {
     </Row>
   );
 }
+
+// --------------------------------------------------------------------
 
 export default Test;
