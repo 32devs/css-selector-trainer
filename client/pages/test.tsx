@@ -69,6 +69,8 @@ function Test() {
     if (!router.isReady) return;
     const testData = data.find(e => e.s == s);
 
+    if (!testData) router.back();
+
     setQuestion(testData?.question || '');
     setSolution(testData?.solution || '');
     setDesc(testData?.desc || '');
