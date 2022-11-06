@@ -23,6 +23,19 @@ const data = [
 </div>`,
     desc: 'CSS Selector에서 id는 <code-gray>#</code-gray>으로 표현됩니다.',
     question: '<strong>id</strong>가 <strong>first</strong>인 요소를 선택해주세요.'
+  },
+  {
+    s: 'class',
+    solution: '.first',
+    testString: `<div>
+  <ul>
+    <li class="first">1</li>
+    <li class="first">2</li>
+    <li class="third">3</li>
+  </ul>
+</div>`,
+    desc: 'CSS Selector에서 class는 <code-gray>.</code-gray>으로 표현됩니다.',
+    question: '<strong>class</strong>가 <strong>first</strong>인 요소를 선택해주세요.'
   }
 ];
 
@@ -55,9 +68,9 @@ function Test() {
     if (!errorReg.test(answer)) {
 
       if (answer === solution) {
-        document.querySelector(`#view ${ answer }`)?.classList.add('correct-answer');
+        document.querySelectorAll(`#view ${ answer }`)?.forEach(element => element.classList.add('correct-answer'));
       } else {
-        document.querySelector(`#view ${ answer }`)?.classList.add('wrong-answer');
+        document.querySelectorAll(`#view ${ answer }`)?.forEach(element => element.classList.add('wrong-answer'));
       }
     }
   }
