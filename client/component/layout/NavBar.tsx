@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

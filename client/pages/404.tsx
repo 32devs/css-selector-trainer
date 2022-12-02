@@ -8,8 +8,6 @@ import { Button } from 'react-bootstrap';
 import Header from '../component/layout/Header';
 import { useEffect } from 'react';
 
-import styles from './Error.module.css';
-
 // 404 page는 next.js 에서 알아서 static 파일로 빌드해줌
 function NotFound(): JSX.Element {
   const router: NextRouter = useRouter();
@@ -27,7 +25,7 @@ function NotFound(): JSX.Element {
   return (
     <>
       <Header subTitle={ '404' } />
-      <div className={ `${ styles['color-white'] } tc` } >
+      <div className="color-white tc" >
         <FontAwesomeIcon icon={ faTriangleExclamation } size="4x" />
         <h2>404 Not Found</h2>
         <p>죄송합니다. 요청하신 페이지를 찾을 수 없습니다.</p>
