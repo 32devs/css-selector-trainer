@@ -1,6 +1,7 @@
 import type { AppContext, AppInitialProps, AppProps } from 'next/app';
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SSRProvider } from 'react-bootstrap';
 import { GlobalStyle } from '../styles/global';
 
 import DefaultLayout from '../component/layout/DefaultLayout';
@@ -11,10 +12,14 @@ config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <DefaultLayout>
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </DefaultLayout>
+    // 부트스트랩 사용은 아래 SSRProvider 필요
+    <SSRProvider>
+      <DefaultLayout>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </DefaultLayout>
+    </SSRProvider>
+    
   );
 }
 

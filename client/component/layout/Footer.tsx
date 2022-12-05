@@ -1,4 +1,3 @@
-import styles from './Footer.module.css';
 import styled from 'styled-components';
 
 // ----------------------------------------------------------------------
